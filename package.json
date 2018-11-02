@@ -1,6 +1,6 @@
 {
   "name": "@fav/math.log10",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Calculates the base 10 logarithm of a number.",
   "main": "index.js",
   "files": [
