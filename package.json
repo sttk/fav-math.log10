@@ -1,0 +1,47 @@
+{
+  "name": "@fav/math.log10",
+  "version": "0.0.0",
+  "description": "Calculates the base 10 logarithm of a number.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "web/"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
+    "coveralls": "nyc --reporter=text-lcov npm test | coveralls",
+    "web:build": "npm run web:build-src && npm run web:build-test",
+    "web:build-src": "browserify index.js --standalone fav.math.log10 -o web/fav.math.log10.js && cd web && uglifyjs fav.math.log10.js --compress --mangle -o fav.math.log10.min.js --source-map url=\"'fav.math.gcd.min.js.map'\"",
+    "web:build-test": "node tool/mktest.js",
+    "chrome:install": "npm i --no-save mocha-chrome",
+    "chrome:test": "mocha-chrome test/web/browser-test.html",
+    "build": "npm run lint && npm run coverage && npm run web:build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sttk/fav-math.log10.git"
+  },
+  "keywords": [
+    "log10",
+    "logarithm",
+    "math",
+    "fav"
+  ],
+  "author": "Takayuki Sato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sttk/fav-math.log10/issues"
+  },
+  "homepage": "https://github.com/sttk/fav-math.log10#readme",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "chai": "^3.0.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.8.0",
+    "mocha": "^3.5.3",
+    "nyc": "^13.1.0",
+    "uglify-js": "^3.4.9"
+  }
+}
